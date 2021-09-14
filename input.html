@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <header class="head">
+            <h1>Employee Form</h1>
+        </header>
+        <div>
+            <input type="username" id="name" placeholder="username" name="name">
+            <error-out class="nameerror" for="name"></error-out>
+        </div>
+        <div>
+            <input type="password" placeholder="password" id="pwd" name="pwd">
+        </div>
+        
+        <div>
+            
+            <input type="email" placeholder="email" id="email" name="email">
+        </div>
+        <div>
+          
+            <input type="phone" placeholder="phone" id="phone" name="phone">
+        </div>
+        <div>
+            <input type="city" placeholder="city" id="city" name="city">
+        </div>
+        <div>
+          
+            <input type="range" placeholder="salary" id="salary" name="salary" min=100000 max="1000000" step="1000" value="500000">
+            <output class="salaryoutput" for="salary"></output>
+        </div>
+        <div>
+            <button>Submit</button> 
+        </div>
+
+
+    </form>
+    <script>
+        const name = document.querySelector('#name');
+        const nameErr = document.querySelector('.nameerror');
+        name.addEventListener('input', function(){
+            let nameReg= RegExp('^[A-Z][a-z]{2,}$');
+            if(nameReg.test(name))
+                nameErr.textContent = ""; 
+            else nameErr.textContent = "inco";
+        });
+
+        const salary= document.querySelector('#salary');
+        const output= document.querySelector('.salaryoutput');
+        output.textContent = salary.value;
+        salary.addEventListener('input', function(){
+            output.textContent=salary.value;
+        });
+    </script>
+</body>
+</html>
